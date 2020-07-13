@@ -1,5 +1,6 @@
 import React from 'react'
-import { /*EventsIcon, */StatusIcon, StatisticsIcon } from './menu-icons'
+import { ReactComponent as StatusIcon } from '../assets/images/themes/core/logos/icon-status.svg'
+import { ReactComponent as StatisticsIcon } from '../assets/images/themes/core/logos/icon-statistics.svg'
 import { Link } from 'react-router-dom'
 
 export const MenuItems = ({ onMenuToggle = null, withoutEvents }) => {
@@ -12,13 +13,13 @@ export const MenuItems = ({ onMenuToggle = null, withoutEvents }) => {
     },*/
     {
       hide: false,
-      icon: <StatusIcon />,
+      icon: <StatusIcon width="26" height="26" />,
       link: '/status',
       text: 'Status'
     },
     {
       hide: withoutEvents,
-      icon: <StatisticsIcon />,
+      icon: <StatisticsIcon width="26" height="26" />,
       link: '/statistics',
       text: 'Statistics'
     }

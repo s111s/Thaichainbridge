@@ -4,18 +4,18 @@ export const BridgeChoose = (props) => {
   const chooseItems = [
     {
       from: 'DAI',
-      to: 'TT-DAI'
+      to: 'TCH-DAI'
     },
     {
-      from: 'TT-DAI',
+      from: 'TCH-DAI',
       to: 'DAI'
     },
     {
       from: 'USDT',
-      to: 'TT-USDT'
+      to: 'TCH-USDT'
     },
     {
-      from: 'TT-USDT',
+      from: 'TCH-USDT',
       to: 'USDT'
     }
   ]
@@ -26,7 +26,7 @@ export const BridgeChoose = (props) => {
   
   const handleOptionChange = (mode) => {
     if (props.web3Store.metamaskNet.id === props.web3Store.foreignNet.id) {
-      if (mode.from.substring(0,3) === 'TT-') {
+      if (mode.from.substring(0,4) === 'TCH-') {
         props.alert.pushError(
           `Please, change network to ${props.web3Store.homeNet.name} to transfer ${mode.from}`
         )
@@ -35,7 +35,7 @@ export const BridgeChoose = (props) => {
         props.setNewTokenHandler(mode.from)
       }
     } else {
-      if (mode.from.substring(0,3) !== 'TT-') {
+      if (mode.from.substring(0,4) !== 'TCH-') {
         props.alert.pushError(
           `Please, change network to ${props.web3Store.foreignNet.name} to transfer ${mode.from}`
         )

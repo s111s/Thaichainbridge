@@ -1,10 +1,10 @@
 $theme-name: 'core';
 
 // base colors
-$primary-color: #fee63b;
+$primary-color: #5a4a42;
 $primary-color-dark: #502d8d;
 $primary-color-darker: #e7d136;
-$secondary-color: #f8752a;
+$secondary-color: #c89b2c;
 $secondary-color-dark: #414141;
 $danger-color: #f13662;
 $blue-color: #3ab9fe;
@@ -26,7 +26,7 @@ $header-logo-height: 30px;
 
 // header menu
 $header-menu-icon-color: $secondary-color;
-$header-menu-text-color: #414141;
+$header-menu-text-color: #ffffff;
 
 // daily quota
 $daily-quota-background: $primary-color-darker;
@@ -45,13 +45,13 @@ $separator-color: #e4e4e4;
 $pattern-background-image: $base-images-path + '/themes/' + $theme-name + '/background/bg-pattern.svg';
 
 // social icons
-$social-icons-icon-color: #414141;
+$social-icons-icon-color: #FFFFFF;
 
 // logo
 $logo-image: $base-images-path + '/themes/' + $theme-name + '/logos/logo-thundercore.svg';
 
 // home logo
-$home-logo-image: $base-images-path + '/themes/' + $theme-name + '/logos/logo-home.svg';
+$home-logo-image: $base-images-path + '/themes/' + $theme-name + '/logos/logo-home.png';
 $home-logo-width: 60px;
 $home-logo-height: 60px;
 

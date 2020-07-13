@@ -4,28 +4,8 @@ import { IconGithub, IconTelegram, IconTwitter, IconReddit, IconMedium, IconDisc
 export const SocialIcons = () => {
   const socialItems = [
     {
-      icon: <IconTwitter />,
-      link: '#'
-    },
-    {
-      icon: <IconReddit />,
-      link: '#'
-    },
-    {
-      icon: <IconMedium />,
-      link: '#'
-    },
-    {
-      icon: <IconDiscord />,
-      link: '#'
-    },
-    {
-      icon: <IconTelegram />,
-      link: '#'
-    },
-    {
       icon: <IconGithub />,
-      link: '#'
+      link: 'https://github.com/thaichain/thunder_bridge'
     }
   ]
 

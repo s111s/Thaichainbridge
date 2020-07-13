@@ -46,9 +46,6 @@ export class Bridge extends React.Component {
             reverse
           })
         }
-        this.setState({
-          recipient: web3Store.defaultAccount.address
-        })
       }
     })
   }
@@ -366,7 +363,7 @@ export class Bridge extends React.Component {
 
   render() {
     const { web3Store, foreignStore, homeStore, alertStore } = this.props.RootStore
-    const { reverse, showModal, modalData, showConfirmation, confirmationData, recipient } = this.state
+    const { reverse, showModal, modalData, showConfirmation, confirmationData/*, recipient*/ } = this.state
     const formCurrency = reverse ? foreignStore.symbol : homeStore.symbol
 
     if (showModal && Object.keys(modalData).length !== 0) {
@@ -405,7 +402,6 @@ export class Bridge extends React.Component {
                   onRecipientInputChange={this.handleInputChange('recipient')}
                   onTransfer={this.onTransfer}
                   reverse={reverse}
-                  recipient={recipient}
                 />
                 <BridgeNetwork
                   balance={reverse ? homeStore.getDisplayedBalance() : foreignStore.balance}

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { MobileMenu } from './MobileMenu'
 import { MobileMenuButton } from './MobileMenuButton'
 import { inject, observer } from 'mobx-react/index'
+import { ReactComponent as TCHLogo } from '../assets/images/themes/core/logos/thai-chain-logo.svg'
 
 @inject('RootStore')
 @observer
@@ -29,9 +30,15 @@ export class Header extends React.Component {
           <MobileMenu withoutEvents={withoutEvents} onMenuToggle={onMenuToggle} />
         ) : null}
         <div className="container">
-          <Link to="/" onClick={showMobileMenu ? onMenuToggle : null} className="header-logo" />
-          <HeaderMenu withoutEvents={withoutEvents} onMenuToggle={onMenuToggle} />
-          <MobileMenuButton onMenuToggle={onMenuToggle} showMobileMenu={showMobileMenu} />
+          <div className="header-section">
+            <Link to="/" onClick={showMobileMenu ? onMenuToggle : null} className="header-logo-container">
+              <TCHLogo />
+            </Link>
+            <MobileMenuButton onMenuToggle={onMenuToggle} showMobileMenu={showMobileMenu} />
+          </div>
+          <div className="header-section buttons">
+            <HeaderMenu withoutEvents={withoutEvents} onMenuToggle={onMenuToggle} />
+          </div>
         </div>
         {alertStore && alertStore.showDailyQuotaInfo && <DailyQuotaModal />}
       </header>
