@@ -96,18 +96,6 @@ function privateKeyToAddress(privateKey) {
     : null
 }
 
-function nonceError(e) {
-  return (
-    e.message.includes('Transaction nonce is too low') ||
-    e.message.includes('nonce too low') ||
-    e.message.includes('transaction with same nonce in the queue')
-  )
-}
-
-function blockGasLimitExceededError(e) {
-  return e.message.includes('exceeds block gas limit') // geth
-}
-
 module.exports = {
   syncForEach,
   checkHTTPS,
@@ -115,7 +103,5 @@ module.exports = {
   addExtraGas,
   setIntervalAndRun,
   watchdog,
-  privateKeyToAddress,
-  nonceError,
-  blockGasLimitExceededError
+  privateKeyToAddress
 }

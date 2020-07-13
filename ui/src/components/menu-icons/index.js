@@ -1,4 +1,3 @@
-export { ReactComponent as TutorialIcon } from './ic_tutorial.svg'
 export * from './EventsIcon'
 export * from './MobileMenuCloseIcon'
 export * from './MobileMenuIcon'

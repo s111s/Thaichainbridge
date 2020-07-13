@@ -14,9 +14,7 @@ const {
   privateKeyToAddress,
   syncForEach,
   waitForFunds,
-  watchdog,
-  nonceError,
-  blockGasLimitExceededError
+  watchdog
 } = require('./utils/utils')
 const { EXIT_CODES, EXTRA_GAS_PERCENTAGE } = require('./utils/constants')
 
@@ -142,22 +140,10 @@ async function main({ msg, ackMsg, nackMsg, sendToQueue, channel }) {
       } catch (e) {
         logger.error(
           { eventTransactionHash: job.transactionReference, error: e.message },
-          `Tx Failed for event Tx ${job.transactionReference}:
-           from: ${privateKeyToAddress(await privateKey.getValidatorKey())}
-           to: ${job.to}
-           gasPrice: ${gasPrice.toString(10)}
-           gasLimit: ${gasLimit}
-           data: ${job.data}
-           chain: ${config.id}
-           nonce: ${nonce}
-           chainId: ${chainId}
-           amount: "0"`,
+          `Tx Failed for event Tx ${job.transactionReference}.`,
           e.message
         )
-        if (
-          !e.message.includes('Transaction with the same hash was already imported') &&
-          !blockGasLimitExceededError(e)
-        ) {
+        if (!e.message.includes('Transaction with the same hash was already imported')) {
           failedTx.push(job)
         }
 
@@ -168,7 +154,10 @@ async function main({ msg, ackMsg, nackMsg, sendToQueue, channel }) {
           logger.error(
             `Insufficient funds: ${currentBalance}. Stop processing messages until the balance is at least ${minimumBalance}.`
           )
-        } else if (nonceError(e)) {
+        } else if (
+          e.message.includes('Transaction nonce is too low') ||
+          e.message.includes('transaction with same nonce in the queue')
+        ) {
           nonce = await readNonce(true)
         }
       }

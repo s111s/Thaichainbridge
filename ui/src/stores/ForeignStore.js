@@ -406,11 +406,7 @@ class ForeignStore {
       })
     } catch (e) {
       console.error(e)
-      // This causes an infinite loop and breaks people's browsers
-      // adding a time out to reduce the calls
-      setTimeout(() => {
-        this.getFeeEvents()
-      }, 500)
+      this.getFeeEvents()
     }
   }
 

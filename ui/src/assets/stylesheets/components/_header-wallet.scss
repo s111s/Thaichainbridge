@@ -1,14 +1,17 @@
 .header-wallet {
     display: flex;
     flex-direction: column;
+    height: 80px;
     justify-content: center;
+    width: 220px;
 
-    @media (max-width: 650px) {
+    @media screen and (max-width: $tablet-width) {
         display: none;
     }
 
     .wallet-container {
         display: flex;
+        padding-left: 20px;
 
         .wallet-icon {
             margin-right: 10px;

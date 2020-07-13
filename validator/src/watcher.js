@@ -129,9 +129,8 @@ async function main({ sendToQueue }) {
     const toBlock = lastBlockToProcess
 
     const events = await getEvents({
-      web3: web3Instance,
       contract: eventContract,
-      eventName: config.event,
+      event: config.event,
       fromBlock,
       toBlock,
       filter: config.eventFilter

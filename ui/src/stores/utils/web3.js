@@ -2,7 +2,7 @@ import Web3 from 'web3'
 import { fromWei, toHex } from 'web3-utils'
 
 const updateTitle = (networkName = 'No chain specified') => {
-  const defaultTitle = 'Thunder Token Bridge'
+  const defaultTitle = 'TokenBridge UI app'
   if (!process.env.REACT_APP_TITLE) {
     document.title = defaultTitle
   } else {
